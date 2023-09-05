@@ -76,7 +76,7 @@ class Order(db.Model):
     finished = db.Column(db.Boolean, nullable=False)
 
     table = relationship("Table", back_populates="orders")
-    employee = relationship("Employee", back_populates="employees")
+    employee = relationship("Employee", back_populates="orders")
 
 
 class OrderDetail(db.Model):
