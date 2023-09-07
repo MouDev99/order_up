@@ -2,4 +2,57 @@
 
 {% block content %}
 <h1>Order Up!</h1>
+<form
+ method="POST"
+ action="{{ url_for('orders.assign_table') }}"
+ class="assign-form"
+>
+    {{ assignmentForm.csrf_token }}
+
+    <h4 class="assign-form-h4">ASSIGN TABLE</h4>
+    <div class="tables-select-div">{{ assignmentForm.tables() }}</div>
+    <div class="servers-select-div">{{ assignmentForm.servers() }}</div>
+    <div class="assign-submit-btn-div">{{ assignmentForm.submit() }}</div>
+</form>
+<div class="open-orders_menu-item-types_wrapper">
+    <div class="open-orders">
+        <h4>YOUR OPEN ORDERS</h4>
+        {% for order_id, table_id, total_price in orders %}
+        <div>
+           <p>Table {{ table_id }}</p>
+           <p>{{ total_price }} $</p>
+           <form method="POST" action="{{ url_for('orders.close_table', orderId=order_id) }}">
+             <button type="submit">CLOSE TABLE</button>
+           </form>
+           <button
+             form="add-to-order-form"
+             formaction="{{ url_for('orders.add_to_order', orderId=order_id)}}"
+           >
+            ADD TO ORDER
+           </button>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="menu-item-types">
+        <form method="POST" id="add-to-order-form">
+            {% for type_name, items_names in menu_items %}
+            <h4>{{ type_name.upper()  }}</h4>
+            <div class="items-names-wrapper">
+                {% for (id, name) in items_names %}
+                <div>
+                    <input
+                     id = "{{ name }}"
+                     type="checkbox"
+                     value="{{ id }}"
+                     name="checkboxes"
+                    >
+                    <label for="{{ name }}">{{ name }}</label>
+                </div>
+                {% endfor %}
+            </div>
+            {% endfor %}
+        </form>
+    </div>
+</div>
+
 {% endblock %}

@@ -1,0 +1,116 @@
+body {
+    position: relative;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 0 auto;
+    width: 70%;
+}
+.assign-form {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.assign-form-h4 {
+    height: fit-content;
+}
+
+
+.tables-select-div {
+    margin-right: 0;
+    margin-left: 3rem;
+}
+
+.servers-select-div {
+    margin-left: 5px;
+}
+
+.assign-submit-btn-div {
+    margin-left: 5px;
+}
+
+.logout-btn {
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 30px;
+    position: absolute;
+    right: 3%;
+    top: 8.1%;
+    background-color: orange;
+    color: white;
+}
+
+
+.tables-select-div select, .servers-select-div select, .assign-submit-btn-div input {
+    border: 1px solid gray;
+    border-radius: 5px;
+    height: 30px;
+    width: fit-content;
+}
+
+.assign-submit-btn-div input {
+    color: white;
+    background-color: blue;
+    cursor: pointer;
+}
+
+.open-orders_menu-item-types_wrapper {
+    display: flex;
+    gap: 10%;
+}
+
+.open-orders {
+    align-self: flex-start;
+    width: 40%;
+}
+
+.open-orders > div {
+    border-top: 1px solid gray;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.open-orders > div > form {
+    margin: auto 0;
+}
+
+.open-orders > div button {
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 4px 6px;
+}
+
+.menu-item-types {
+    justify-self: flex-end;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.menu-item-types h4 {
+    border-bottom: 2px solid gray;
+    font-size: 1.3em;
+    width: fit-content;
+}
+
+.items-names-wrapper {
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+
+.items-names-wrapper div {
+    display: flex;
+    margin-right: 10px;
+}
+
+.items-names-wrapper label {
+    font-size: 1.2em;
+}
+
+.items-names-wrapper input {
+    width: 1.4em;
+    height: 1.4em;
+}

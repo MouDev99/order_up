@@ -4,7 +4,7 @@ load_dotenv()
 
 
 from app import app, db
-from app.models import Employee, Menu, MenuItem, MenuItemType, Table
+from app.models import Employee, Menu, MenuItem, MenuItemType, Order, Table
 
 
 with app.app_context():
@@ -43,5 +43,21 @@ with app.app_context():
 
     for table in tables:
         db.session.add(table)
+
+    db.session.commit()
+
+
+    employee = db.session.get(Employee, 1)
+
+    orders = [
+    Order(employee=employee, table=tables[5], finished=False),
+    Order(employee=employee, table=tables[6], finished=False),
+    Order(employee=employee, table=tables[7], finished=False),
+    Order(employee=employee, table=tables[8], finished=False),
+    Order(employee=employee, table=tables[9], finished=False),
+    ]
+
+    for order in orders:
+        db.session.add(order)
 
     db.session.commit()
